@@ -24,6 +24,8 @@ first_name = "Ryan"
 puts first_name
 puts first_name_also
 
+# string interpoloation has to be within double quotes
+
 name = "Sally Parker"
 
 puts "My name is #{name}"
@@ -47,3 +49,10 @@ puts "What is your last name?"
 last_name = gets.chomp
 
 puts "Welcome to the playground, #{first_name} #{last_name}!"
+
+puts "Please enter your first number!"
+first_number = gets.chomp
+puts "Please enter your second number!"
+second_number = gets.chomp
+
+puts "The first number multiplied by the second number is: #{first_number.to_i * second_number.to_i}"
