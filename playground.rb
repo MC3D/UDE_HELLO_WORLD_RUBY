@@ -126,47 +126,76 @@
 #
 # 5.to_s
 
-# methods are not hoisted
-def multiply(first_number, second_number)
-  first_number.to_f * second_number.to_f
-end
+# # methods are not hoisted
+# def multiply(first_number, second_number)
+#   first_number.to_f * second_number.to_f
+# end
+#
+# def divide(first_number, second_number)
+#   first_number.to_f / second_number.to_f
+# end
+#
+# def subtract(first_number, second_number)
+#   second_number.to_f - first_number.to_f
+# end
+#
+# def mod(first_number, second_number)
+#   first_number.to_f % second_number.to_f
+# end
+#
+# puts "What do you want to do? 1) multiply 2) divide 3) subtract 4) find remainder"
+# prompt = gets.chomp
+#
+# puts "Enter your first number."
+# first_number = gets.chomp
+# puts "Enter your second number."
+# second_number = gets.chomp
+#
+# if prompt == '1'
+#   puts "You have chosen to multiply #{first_number} with #{second_number}."
+#   result = multiply(first_number, second_number)
+# elsif prompt == '2'
+#   puts "You have chosen to divide."
+#   result = divide(first_number, second_number)
+# elsif prompt == '3'
+#   puts "You have chosen to substract."
+#   result = subtract(first_number, second_number)
+# elsif prompt == '4'
+#   puts "You have chosen remainder."
+#   result = mod(first_number, second_number)
+# else
+#   puts "You have chosen incorrectly."
+# end
+#
+# puts "The result is #{result}"
+#
+# # puts multiply(5, 10)
 
-def divide(first_number, second_number)
-  first_number.to_f / second_number.to_f
-end
+# a = [1,2,3,4,5,"Mady", [0,1,2,3]]
+# puts a.empty? #false
+# puts a.include?("Mady") #true
+#
+# a.reverse # will not update the original array
+# a.reverse # will update the original array
+# a.shuffle # will not mututate the caller / will not update the original array
+# (0..25).to_a # uses a range to create an array
+y = (0..99).to_a.shuffle!
+z = (0..9).to_a
+z << 25 # <<: shovel operator; adds 25 to the end of the array
+z.push(30) # adds 30 to the end of the array
+z.unshift("Mady") # adds Mady to the start of the array
+z.pop # removes the last item from the array
+z.uniq # removes duplicates; will not update the original array
+z.uniq! # will update the original array
+y.each {|i| puts i} # will print out the value of i for each item
 
-def subtract(first_number, second_number)
-  second_number.to_f - first_number.to_f
-end
+# for number in y
+#   puts "Hi"
+# end
 
-def mod(first_number, second_number)
-  first_number.to_f % second_number.to_f
-end
+names = ["joe", "john", "james"]
 
-puts "What do you want to do? 1) multiply 2) divide 3) subtract 4) find remainder"
-prompt = gets.chomp
+names.each {|i| puts "Hello, #{i.capitalize}!"}
 
-puts "Enter your first number."
-first_number = gets.chomp
-puts "Enter your second number."
-second_number = gets.chomp
-
-if prompt == '1'
-  puts "You have chosen to multiply #{first_number} with #{second_number}."
-  result = multiply(first_number, second_number)
-elsif prompt == '2'
-  puts "You have chosen to divide."
-  result = divide(first_number, second_number)
-elsif prompt == '3'
-  puts "You have chosen to substract."
-  result = subtract(first_number, second_number)
-elsif prompt == '4'
-  puts "You have chosen remainder."
-  result = mod(first_number, second_number)
-else
-  puts "You have chosen incorrectly."
-end
-
-puts "The result is #{result}"
-
-# puts multiply(5, 10)
+puts y.select { |i| i.odd? }
+puts names.join(' ')
