@@ -179,23 +179,40 @@
 # a.reverse # will update the original array
 # a.shuffle # will not mututate the caller / will not update the original array
 # (0..25).to_a # uses a range to create an array
-y = (0..99).to_a.shuffle!
-z = (0..9).to_a
-z << 25 # <<: shovel operator; adds 25 to the end of the array
-z.push(30) # adds 30 to the end of the array
-z.unshift("Mady") # adds Mady to the start of the array
-z.pop # removes the last item from the array
-z.uniq # removes duplicates; will not update the original array
-z.uniq! # will update the original array
-y.each {|i| puts i} # will print out the value of i for each item
+# y = (0..99).to_a.shuffle!
+# z = (0..9).to_a
+# z << 25 # <<: shovel operator; adds 25 to the end of the array
+# z.push(30) # adds 30 to the end of the array
+# z.unshift("Mady") # adds Mady to the start of the array
+# z.pop # removes the last item from the array
+# z.uniq # removes duplicates; will not update the original array
+# z.uniq! # will update the original array
+# y.each {|i| puts i} # will print out the value of i for each item
+#
+# # for number in y
+# #   puts "Hi"
+# # end
+#
+# names = ["joe", "john", "james"]
+#
+# names.each {|i| puts "Hello, #{i.capitalize}!"}
+#
+# puts y.select { |i| i.odd? }
+# puts names.join(' ')
 
-# for number in y
-#   puts "Hi"
-# end
+# hash is a data structure that stores values using key value pairs
 
-names = ["joe", "john", "james"]
+my_details = {'name' => 'Mady', 'favcolor' => 'yellow'}
+puts my_details['favcolor']
 
-names.each {|i| puts "Hello, #{i.capitalize}!"}
+myhash = {a:1, b:2, c:3}
+puts myhash[:c]
+myhash[:d] = 7 # adds d to the hash
+myhash.delete(:b) # removes b from the hash
 
-puts y.select { |i| i.odd? }
-puts names.join(' ')
+numbers = {a:1, b:2, c:3, d:4, e:5}
+numbers.each {|k,v| puts "The key is #{k} and the value is #{v}"}
+numbers.each {|k,v| numbers.delete(k) if v > 3}
+puts numbers
+
+puts numbers.select{|k,v| v.odd?}
