@@ -202,17 +202,17 @@
 
 # hash is a data structure that stores values using key value pairs
 
-my_details = {'name' => 'Mady', 'favcolor' => 'yellow'}
-puts my_details['favcolor']
-
-myhash = {a:1, b:2, c:3}
-puts myhash[:c]
-myhash[:d] = 7 # adds d to the hash
-myhash.delete(:b) # removes b from the hash
-
-numbers = {a:1, b:2, c:3, d:4, e:5}
-numbers.each {|k,v| puts "The key is #{k} and the value is #{v}"}
-numbers.each {|k,v| numbers.delete(k) if v > 3}
-puts numbers
-
-puts numbers.select{|k,v| v.odd?}
+# my_details = {'name' => 'Mady', 'favcolor' => 'yellow'}
+# puts my_details['favcolor']
+#
+# myhash = {a:1, b:2, c:3}
+# puts myhash[:c]
+# myhash[:d] = 7 # adds d to the hash
+# myhash.delete(:b) # removes b from the hash
+#
+# numbers = {a:1, b:2, c:3, d:4, e:5}
+# numbers.each {|k,v| puts "The key is #{k} and the value is #{v}"}
+# numbers.each {|k,v| numbers.delete(k) if v > 3}
+# puts numbers
+#
+# puts numbers.select{|k,v| v.odd?}
