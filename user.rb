@@ -1,5 +1,14 @@
+# module names end in able if possible
+module Destructable
+  def destroy(anyobject)
+    puts "I will destroy the object"
+  end
+end
+
 class User
-  # sets the getter and setter methods for name
+  include Destructable
+
+  # make properties publicly available
   attr_accessor :name, :email
 
   def initialize(name, email)
@@ -7,36 +16,43 @@ class User
     @email = email
   end
 
+  # instance method
   def run
-    puts "Hey, I'm running!"
+    puts "Hey, I'm running"
   end
 
-  # def get_name
-  #   @name
-  # end
-  #
-  # def set_name=(name)
-  #   @name = name
-  # end
+  # class method
+  def self.identify_yourself
+    puts "Hey, I am a class method."
+  end
 end
 
-user1= User.new("Mady", "mady@example.com")
-user2 = User.new("Tim", "tim@example.com")
-user3 = User.new("Addi", "addi@example.com")
+class Buyer < User
+  def run
+    puts "Hey, I don't run, I'm a buyer!"
+  end
+end
 
-# puts User.ancestors
+class Seller < User
 
-# user1.run
-#
-# puts user1
-# puts user2
-# puts user3
+end
 
-# puts user1.get_name
-puts user1.name
-#
-# user2.set_name = "Faith"
-user2.name = "Faith"
-user2.email = "faith@example.com"
-# puts user2.get_name
-puts user2.name + " " + user2.email
+class Admin < User
+
+end
+
+buyer1 = Buyer.new("John Doe", "johndoe@example.com")
+buyer1.run
+
+seller1 = Seller.new("Mady", "mady@example.com")
+seller1.run
+
+admin1 = Admin.new("Tim", "tim@example.com")
+admin1.run
+
+User.identify_yourself
+
+user1 = User.new("mady", "mady@example.com")
+user1.destroy("myname")
+
+# methods are publicly available by default; you can access the using dot notation
