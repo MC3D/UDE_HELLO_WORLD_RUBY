@@ -201,6 +201,7 @@
 # puts names.join(' ')
 
 # hash is a data structure that stores values using key value pairs
+# hash is a dictionary-like collection of unique keys and their values
 
 # my_details = {'name' => 'Mady', 'favcolor' => 'yellow'}
 # puts my_details['favcolor']
