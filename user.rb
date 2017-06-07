@@ -1,58 +1,25 @@
-# module names end in able if possible
-module Destructable
-  def destroy(anyobject)
-    puts "I will destroy the object"
-  end
-end
+require 'json'
 
 class User
-  include Destructable
 
-  # make properties publicly available
-  attr_accessor :name, :email
-
-  def initialize(name, email)
-    @name = name
-    @email = email
+  attr_accessor :email, :name, :permissions
+  # * is a splat operator;
+  # *args; initialize takes the args we pass in and creates an array
+  def initialize(*args)
+    @email = args[0]
+    @name = args[1]
+    @permissions = User.permissions_from_template
   end
 
-  # instance method
-  def run
-    puts "Hey, I'm running"
+  def self.permissions_from_template
+    file = File.read 'user_permissions_template.json'
+    JSON.load(file, nil, symbolize_names: true, create_additions: false)
   end
 
-  # class method
-  def self.identify_yourself
-    puts "Hey, I am a class method."
+  def save
+    self_json = {email: @email, name: @name, permissions: @permissions}.to_json
+    open('users.json', 'a') do |file|
+      file.puts self_json
+    end
   end
 end
-
-class Buyer < User
-  def run
-    puts "Hey, I don't run, I'm a buyer!"
-  end
-end
-
-class Seller < User
-
-end
-
-class Admin < User
-
-end
-
-buyer1 = Buyer.new("John Doe", "johndoe@example.com")
-buyer1.run
-
-seller1 = Seller.new("Mady", "mady@example.com")
-seller1.run
-
-admin1 = Admin.new("Tim", "tim@example.com")
-admin1.run
-
-User.identify_yourself
-
-user1 = User.new("mady", "mady@example.com")
-user1.destroy("myname")
-
-# methods are publicly available by default; you can access the using dot notation
